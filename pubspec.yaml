@@ -1,0 +1,22 @@
+name: interstate
+description: A library for coordinating and querying widget states in dynamic forms and widget trees.
+version: 1.0.0
+homepage: https://github.com/jdrotos/interstate
+repository: https://github.com/jdrotos/interstate
+
+environment:
+  sdk: ^3.2.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+# The following section is specific to Flutter packages.
+flutter:
