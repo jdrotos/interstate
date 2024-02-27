@@ -26,7 +26,7 @@ Build dynamic forms without mirroring the structure in your data model.
 Widgets in your form can manage their own states and children, without a higher level state object
 to define structures.
 
-![Sample](https://github.com/jdrotos/interstate/blob/main/readme_assets/add_numbers_1.gif)
+![Sample](https://raw.githubusercontent.com/jdrotos/interstate/main/readme_assets/add_numbers_1.gif)
 
 ## Basic explainer
 
