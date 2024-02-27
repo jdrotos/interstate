@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:example/number_or_add_events.dart';
+import 'package:example/number_or_add/number_or_add_events.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:interstate/interstate.dart';

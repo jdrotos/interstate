@@ -1,5 +1,7 @@
-import 'package:example/number_or_add_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'number_or_add/number_or_add_widget.dart';
+import 'nested_text_field/nested_text_field_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,35 +10,44 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home:  Scaffold(body: SingleChildScrollView(child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
-        child: NumberOrAddWidget(uniqueId: "root"),
-      ))),
+      home: Scaffold(
+          body: SingleChildScrollView(
+              child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Example 1:", style: Theme.of(context).textTheme.headlineLarge),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Text(
+                          "This example shows adding text fields to the form dynamically, triggering validations on changes, passing errors up the tree, and querying children for nested_text_field status before taking a save action.\n\nThe only invalid text is blank. <hit enter to trigger save action>",
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                      ),
+                      const NestableTextFieldWidget(
+                          uniqueId: "nestabletextfield.root", child: AddNestedTextFieldWidget(uniqueId: "nested")),
+                      const Divider(height: 128, thickness: 2, color: Colors.black),
+                      Text("Example 2:", style: Theme.of(context).textTheme.headlineLarge),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Text(
+                          "This example builds a dynamic tree adding the values of the branches. Demonstrating how a parent can query specific children directly.",
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                      ),
+                      NumberOrAddWidget(uniqueId: "numberoradd.root"),
+                    ],
+                  )))),
     );
   }
 }
